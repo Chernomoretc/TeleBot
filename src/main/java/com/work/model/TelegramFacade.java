@@ -18,11 +18,9 @@ public class TelegramFacade {
     public BotApiMethod<?> hadleUpdate(Update update) {
 
         if (update.hasCallbackQuery()) {
-            System.out.println("!");
             CallbackQuery callbackQuery = update.getCallbackQuery();
             return null;
         } else {
-            System.out.println("!");
             Message message = update.getMessage();
             SendMessage sendMessage = new SendMessage();
             sendMessage.setChatId(String.valueOf(message.getChatId()));
