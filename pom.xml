@@ -8,7 +8,7 @@
 		<version>2.5.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>ru.popov</groupId>
+	<groupId>ru.chernomoretc.telegrambot</groupId>
 	<artifactId>telegrambot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>telegrambot</name>
