@@ -53,6 +53,7 @@ public class TelegramFacade {
 
                     switch (command) {
                         case "/worked":
+                            SendMessage sendMessage = new SendMessage(message.getChatId().toString(),"Hello i am El-Service Bot");
                             getStartMessage(message.getChatId().toString());
                             break;
                     }
