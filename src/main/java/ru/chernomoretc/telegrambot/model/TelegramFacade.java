@@ -53,7 +53,7 @@ public class TelegramFacade {
 
                     switch (command) {
                         case "/worked":
-                            SendMessage sendMessage = new SendMessage(message.getChatId().toString(),"Hello i am El-Service Bot");
+                            SendMessage sendMessage = new SendMessage(message.getChatId().toString(), "Hello i am El-Service Bot");
                             getStartMessage(message.getChatId().toString());
                             break;
                     }
@@ -65,6 +65,9 @@ public class TelegramFacade {
                         .text(
                                 message.getLocation().toString() + " " + message.getContact().getFirstName().toString())
                         .build();
+            } else if (message.hasText()) {
+                SendMessage sendMessage = new SendMessage(message.getChatId().toString(), message.getText());
+
             }
         }
         return null;
