@@ -6,7 +6,6 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 @Component
-//wrapper to receive Beans
 public class ApplicationContextProvider implements ApplicationContextAware {
 
     private static ApplicationContext context;

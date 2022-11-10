@@ -3,12 +3,15 @@ package ru.chernomoretc.telegrambot.model;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.updates.SetWebhook;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.starter.SpringWebhookBot;
+
+import java.io.IOException;
 
 @Getter
 @Setter
@@ -29,8 +32,14 @@ public class TelegramBot extends SpringWebhookBot {
         this.telegramFacade = telegramFacade;
     }
 
+    @SneakyThrows
     @Override
     public BotApiMethod<?> onWebhookUpdateReceived(Update update) {
-        return telegramFacade.handleUpdate(update);
+        try {
+            return telegramFacade.handleUpdate(update);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
